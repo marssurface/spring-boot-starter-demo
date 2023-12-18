@@ -1,0 +1,63 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=utf8&useSSL=true
+    username: root
+  jpa:
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.MySQLDialect
+        hbm2ddl:
+          auto: none
+        format_sql: false
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder:
+app:
+  secret: 1234567890123456A
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: order
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 't1'
+      display-name: '11'
+      paths-to-match: '/t1/**'
+    - group: 't2'
+      display-name: '22'
+      paths-to-match: '/t2/**'
+  default-flat-param-object: true
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    swagger-model-name: 实体类列表
+    enable-group: true
+  documents:
+    - name:
+      locations:
+      group:
+  basic:
+    enable: false
+    username: abc
+    password: 123
+  insight:
+    enable: false
+    service-name: boot3
+    secret: BudeU0urM30JTQ+YPZu1GddkG8h0fMgWuYeViSO4Y7Q=
+    server: http://localhost:10086
+    namespace: spring3
